@@ -11,7 +11,7 @@ function setOperation(operation) {
   if (currentInput === '') return;
 
   if (previousInput !== '') {
-    calculateResult(); // Если предыдущий ввод есть, вычисляем перед установкой новой операции
+    calculateResult();
   }
 
   currentOperation = operation;
@@ -25,7 +25,7 @@ function calculateResult() {
   const prev = parseFloat(previousInput);
   const curr = parseFloat(currentInput);
 
-  if (isNaN(prev) || isNaN(curr)) return; // Если нет чисел для вычисления, ничего не делаем
+  if (isNaN(prev) || isNaN(curr)) return;
 
   switch (currentOperation) {
     case '+':
@@ -39,13 +39,13 @@ function calculateResult() {
       break;
     case '/':
       if (curr === 0) {
-        result = 'Error'; // Обработка деления на ноль
+        result = 'Error';
       } else {
         result = prev / curr;
       }
       break;
     default:
-      return; // Если операция не задана, ничего не делаем
+      return;
   }
 
   currentInput = result.toString();
